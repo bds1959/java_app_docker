@@ -1,0 +1,9 @@
+FROM java:8
+WORKDIR /
+ADD DockerConnectMySQL.java /
+ADD mysql-connector-java-5.1.47-bin.jar /
+ENV CLASSPATH=".:/mysql-connector-java-5.1.47-bin.jar:${CLASSPATH}"
+RUN javac DockerConnectMySQL.java
+EXPOSE 8080
+CMD java  DockerConnectMySQL
+
